@@ -11,11 +11,7 @@
             font-family: 'Roboto', sans-serif;
             background-color: #f0f5fa; /* Cor de fundo suave */
         }
-        .estacio-blue { color: #003366; }
-        .validation-card {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            border-top: 5px solid #00A65A; /* Verde para sucesso */
-        }
+        .estacio-blue { background-color: #003366; }
         .check-icon {
             width: 80px;
             height: 80px;
@@ -26,6 +22,8 @@
             justify-content: center;
             color: white;
             animation: pop-in 0.5s ease-out;
+            margin-top: -40px; /* Puxa o ícone para cima, sobrepondo o header */
+            border: 4px solid white;
         }
         @keyframes pop-in {
             0% { transform: scale(0.5); opacity: 0; }
@@ -35,46 +33,53 @@
 </head>
 <body class="flex items-center justify-center min-h-screen p-4">
 
-    <div class="w-full max-w-md bg-white rounded-lg validation-card text-center p-8">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-xl overflow-hidden">
         
-        <!-- Logo Estácio -->
-        <header class="mb-6">
-            <img src="https://logodownload.org/wp-content/uploads/2014/08/estacio-logo-1.png" alt="Logo Estácio" class="h-10 mx-auto" onerror="this.onerror=null;this.style.display='none'">
+        <!-- Cabeçalho com Logos -->
+        <header class="estacio-blue p-4 h-24 flex items-center justify-between">
+             <img src="https://www.estacio.br/static/media/logo_branco.55a28ae3.svg" alt="Logo Estácio" class="h-8" onerror="this.onerror=null;this.style.display='none'">
+             <img src="https://i.pinimg.com/736x/be/b7/59/beb7593d7a55a49804b75a36a841c0b9.jpg" alt="Logo MEC" class="h-12" onerror="this.onerror=null;this.style.display='none'">
         </header>
 
-        <!-- Selo de Validação -->
-        <div class="flex justify-center mb-4">
-            <div class="check-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
+        <div class="text-center px-8 pb-8">
+            <!-- Selo de Validação -->
+            <div class="flex justify-center">
+                <div class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
             </div>
+
+            <!-- Mensagem de Status -->
+            <h1 class="text-2xl font-black text-gray-800 mb-2 mt-4">Carteirinha Validada</h1>
+            <p class="text-gray-600 mb-6">Este documento de identificação estudantil é original e está ativo.</p>
+
+            <!-- Detalhes do Aluno -->
+            <div class="bg-gray-50 rounded-lg p-4 text-left space-y-3 border border-gray-200">
+                <div>
+                    <p class="text-xs font-bold text-gray-500">NOME</p>
+                    <p class="font-semibold text-gray-800">EDUARDO CHRISÓSTOMO DA SILVA</p>
+                </div>
+                 <div>
+                    <p class="text-xs font-bold text-gray-500">CURSO</p>
+                    <p class="font-semibold text-gray-800">MBA em Banco de Dados</p>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-gray-500">MATRÍCULA</p>
+                    <p class="font-semibold text-gray-800">2024155778</p>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-gray-500">VALIDADE</p>
+                    <p class="font-semibold text-gray-800">03/2026</p>
+                </div>
+            </div>
+
+            <!-- Timestamp da Validação -->
+            <footer class="mt-6">
+                <p id="validationTime" class="text-xs text-gray-500">Validado em: --/--/---- --:--:--</p>
+            </footer>
         </div>
-
-        <!-- Mensagem de Status -->
-        <h1 class="text-2xl font-black text-gray-800 mb-2">Carteirinha Validada</h1>
-        <p class="text-gray-600 mb-6">Este documento de identificação estudantil é original e está ativo.</p>
-
-        <!-- Detalhes do Aluno -->
-        <div class="bg-gray-50 rounded-lg p-4 text-left space-y-3 border border-gray-200">
-            <div>
-                <p class="text-xs font-bold text-gray-500">NOME</p>
-                <p class="font-semibold estacio-blue">EDUARDO CHRISÓSTOMO DA SILVA</p>
-            </div>
-             <div>
-                <p class="text-xs font-bold text-gray-500">CURSO</p>
-                <p class="font-semibold estacio-blue">MBA em Banco de Dados</p>
-            </div>
-            <div>
-                <p class="text-xs font-bold text-gray-500">MATRÍCULA</p>
-                <p class="font-semibold estacio-blue">2024155778</p>
-            </div>
-        </div>
-
-        <!-- Timestamp da Validação -->
-        <footer class="mt-6">
-            <p id="validationTime" class="text-xs text-gray-500">Validado em: --/--/---- --:--:--</p>
-        </footer>
     </div>
 
     <script>
